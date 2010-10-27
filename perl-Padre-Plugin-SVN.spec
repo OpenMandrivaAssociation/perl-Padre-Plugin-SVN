@@ -30,7 +30,10 @@ no description found
 %make
 
 %check
+# sometimes fails without X display available
+%if %{?_with_test:1}%{?!_with_test:0}
 %make test
+%endif
 
 %install
 rm -rf %buildroot
